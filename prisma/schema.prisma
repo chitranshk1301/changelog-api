@@ -39,7 +39,7 @@ model Update {
   createdAt DateTime @default(now())
   updatedAt DateTime
 
-  title   String
+  title   String        @db.VarChar(255)
   body    String
   status  UPDATE_STATUS @default(IN_PROGRESS)
   version String? // here question mark is for marking the field as optional
@@ -47,6 +47,18 @@ model Update {
 
   productId String
   product   Product @relation(fields: [productId], references: [id])
+  updatePoints UpdatePoint[]
 }
 
+model UpdatePoint {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime
 
+  name        String @db.VarChar(255)
+  description String 
+  
+  updateId String
+  update   Update @relation(fields: [updateId], references: [id])
+
+}
