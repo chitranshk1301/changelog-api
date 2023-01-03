@@ -21,13 +21,13 @@ router.put('update/:id',
     body('status').isIn(['IN_PROGRESS', 'SHIPPED', 'DEPRECATED']).optional(),
     body('body').optional(),
     body('version').optional(),
-    createUpdate
+    updateUpdate
 )
 router.post('/update',
     body('title').exists().isString(),
     body('body').exists().isString(),
     body('productId').exists().isString(),
-    updateUpdate
+    createUpdate
 )
 
 router.delete('/update/:id', deleteUpdate)
