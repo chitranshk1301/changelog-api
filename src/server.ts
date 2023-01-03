@@ -13,12 +13,8 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 // middlewares are always written before route decorators
 
-app.get('/',(req,res)=>{
-    console.log("hello world")
-    res.status(200)
-    res.json(
-        {"message":"hello world"}
-    )
+app.get('/',(req,res,next)=>{
+    res.json({message: 'nope'})
 })
 
 app.use('/api',protect, router)
