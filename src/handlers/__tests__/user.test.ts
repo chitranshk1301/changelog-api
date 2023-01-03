@@ -7,6 +7,6 @@ describe('user handler', () => {
       expect(token).toBeTruthy()
     }}
 
-    await user.createNewUser(req, res)
+    await user.createNewUser(req, res, ()=>{})
   })
 })
