@@ -31,5 +31,6 @@ app.use((err, req, res, next) => {
       res.status(500).json({message: 'oops, thats on us'})
     }
   })
+//   can add this middleware to any handler to catch errors and send a response
 
 export default app;
